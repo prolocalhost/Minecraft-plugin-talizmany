@@ -1,0 +1,161 @@
+# ==============================================================
+#                 localhost-talizmany - Konfiguracja
+#       Autor: Localhost (discord: localhost_127001)
+# ==============================================================
+
+settings:
+  # Tryb aktywacji talizmanow:
+  # INVENTORY - talizman dziala jesli gracz posiada go w dowolnym slocie eq
+  # HANDS - talizman dziala tylko gdy trzymany jest w rece glownej lub dodatkowej
+  activation-mode: "INVENTORY"
+
+  # Dzwiek odtwarzany przy otwarciu katalogu GUI
+  gui-sound: "UI_BUTTON_CLICK"
+
+  # Czy powiadomienia o cooldownie aktywnego talizmanu maja wyswietlac sie na ActionBarze
+  actionbar-enabled: true
+
+# Konfiguracja poszczegolnych talizmanow
+talizmany:
+  vampirism:
+    enabled: true
+    material: "REDSTONE"
+    custom-model-data: 101
+    name: "&c&lTalizman Wampiryzmu"
+    lore:
+      - "&7Rzadkość: &cMityczny"
+      - ""
+      - "&7Działanie pasywne:"
+      - "&8» &7Wysysa siły witalne przeciwnika podczas ciosu."
+      - "&8» &c%chance%% &7szansy na uleczenie &c%heal%% &7zadanych obrażeń!"
+      - ""
+      - "&eDziała, gdy znajduje się w Twoim ekwipunku."
+    chance: 35.0
+    heal-percent: 25.0
+    sound: "ENTITY_PLAYER_BURP"
+    particle: "DAMAGE_INDICATOR"
+
+  phoenix:
+    enabled: true
+    material: "TOTEM_OF_UNDYING"
+    custom-model-data: 102
+    name: "&6&lTalizman Feniksa"
+    lore:
+      - "&7Rzadkość: &6Legendarny"
+      - ""
+      - "&7Działanie pasywne:"
+      - "&8» &7Chroni przed śmiertelnym ciosem!"
+      - "&8» &7Przywraca &e4.0 HP&7, nadaje &eRegenerację II&7,"
+      - "&8» &eOdporność na Ogień &7oraz &eAbsorpcję&7."
+      - ""
+      - "&cCooldown: &f%cooldown%s"
+      - "&eDziała, gdy znajduje się w Twoim ekwipunku."
+    cooldown: 180
+    absorption-duration: 10
+    regen-duration: 5
+    sound: "ITEM_TOTEM_USE"
+    particle: "FLAME"
+
+  thunder:
+    enabled: true
+    material: "AMETHYST_SHARD"
+    custom-model-data: 103
+    name: "&b&lTalizman Gromu"
+    lore:
+      - "&7Rzadkość: &bRzadki"
+      - ""
+      - "&7Działanie pasywne:"
+      - "&8» &7Podczas ataku masz &b%chance%% &7szansy"
+      - "&8» &7na uderzenie wroga &bpotężnym piorunem&7,"
+      - "&8» &7który zadaje dodatkowe &e%damage% serca&7!"
+      - ""
+      - "&eDziała, gdy znajduje się w Twoim ekwipunku."
+    chance: 20.0
+    extra-damage: 3.0
+    sound: "ENTITY_LIGHTNING_BOLT_THUNDER"
+    particle: "ELECTRIC_SPARK"
+
+  wind_dash:
+    enabled: true
+    material: "FEATHER"
+    custom-model-data: 104
+    name: "&f&lTalizman Wiatru"
+    lore:
+      - "&7Rzadkość: &fEpicki"
+      - ""
+      - "&7Działanie aktywne (&ePPM&7):"
+      - "&8» &7Wystrzeliwuje Cię z ogromną prędkością"
+      - "&8» &7w kierunku, w który patrzysz!"
+      - "&8» &7Chroni przed obrażeniami od upadku po skoku."
+      - ""
+      - "&cCooldown: &f%cooldown%s"
+      - "&eKliknij Prawym Przyciskiem Myszy trzymając w ręku."
+    cooldown: 15
+    power: 1.6
+    up-power: 0.35
+    sound: "ENTITY_PHANTOM_FLAP"
+    particle: "CLOUD"
+
+  titan:
+    enabled: true
+    material: "IRON_INGOT"
+    custom-model-data: 105
+    name: "&8&lTalizman Tytana"
+    lore:
+      - "&7Rzadkość: &8Epicki"
+      - ""
+      - "&7Działanie pasywne:"
+      - "&8» &7Gdy Twoje zdrowie spadnie poniżej &c30%&7,"
+      - "&8» &7otrzymujesz &9Odporność II (Resistance) &7na &e%duration%s&7!"
+      - ""
+      - "&cCooldown: &f%cooldown%s"
+      - "&eDziała, gdy znajduje się w Twoim ekwipunku."
+    hp-threshold: 30.0
+    duration: 6
+    cooldown: 60
+    sound: "BLOCK_ANVIL_LAND"
+    particle: "ENCHANTMENT_TABLE"
+
+# GUI Przegladarki Talizmanow (/talizman)
+gui:
+  title: "&8Katalog Talizmanow"
+  size: 36
+  background:
+    material: "GRAY_STAINED_GLASS_PANE"
+    name: " "
+  slots:
+    vampirism: 11
+    phoenix: 12
+    thunder: 13
+    wind_dash: 14
+    titan: 15
+  info-slot: 31
+  info-item:
+    material: "BOOK"
+    name: "&6&lInformacje o Talizmanach"
+    lore:
+      - "&7Talizmany nadają unikalne efekty w walce oraz eksploracji."
+      - "&7Możesz je zdobyć z bossów, eventów oraz u kowala."
+      - ""
+      - "&8» &aAdministrator &7może kliknąć &eShift+LPM&7, aby pobrać talizman."
+
+# Wiadomosci i komunikaty
+messages:
+  prefix: "&8[&6Talizmany&8] &7"
+  no-permission: "&cNie posiadasz uprawnień do tej czynności!"
+  player-only: "&cTa komenda może być wykonana wyłącznie przez gracza!"
+  reload: "&aKonfiguracja pluginu została pomyślnie przeładowana!"
+  usage: "&7Użycie: &e/talizman [lista|daj|reload]"
+  usage-give: "&7Użycie: &e/talizman daj <gracz> <typ> [ilość]"
+  player-not-found: "&cPodany gracz &e%player% &cjest offline!"
+  unknown-type: "&cNieprawidłowy typ talizmanu! Dostępne typy: &e%types%"
+  invalid-amount: "&cPodana ilość musi być dodatnią liczbą całkowitą!"
+  given-sender: "&aPomyślnie nadano &ex%amount% %talisman% &adla gracza &e%player%&a!"
+  given-target: "&aOtrzymałeś &ex%amount% %talisman%&a!"
+  inventory-full: "&cTwój ekwipunek jest pełny! Talizman wypadł na ziemię."
+  cooldown-active: "&cTen talizman odnawia się! Pozostało: &e%time%s&c."
+  phoenix-saved: "&6&lFENIKS! &7Twój Talizman Feniksa uratował Cię przed śmiercią!"
+  wind-dash: "&f&lSZUS! &7Użyto Talizmanu Wiatru!"
+  titan-proc: "&8&lTYTAN! &7Pancerz Tytana chroni Twoje życie!"
+  actionbar-cooldown: "&c%talisman%: &fOdnawianie (%time%s)"
+  actionbar-ready: "&a%talisman%: &fGotowy do użycia!"

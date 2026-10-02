@@ -1,0 +1,24 @@
+name: localhost-talizmany
+version: '${version}'
+
+main: pl.localhost.talizmany.Main
+api-version: '1.20'
+load: POSTWORLD
+
+authors: [ Localhost ]
+website:
+  discord: localhost_127001
+
+commands:
+  talizman:
+    aliases: [talizmany, talisman]
+    description: Komenda glowna systemu talizmanow
+    permission: talizmany.use
+
+permissions:
+  talizmany.use:
+    description: Pozwala na uzywanie i przegladanie talizmanow w GUI
+    default: true
+  talizmany.admin:
+    description: Pozwala na nadawanie talizmanow i przeladowywanie konfiguracji
+    default: op
